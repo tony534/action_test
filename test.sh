@@ -15,7 +15,7 @@ git diff --name-status $START_COMMIT HEAD | grep -v "^D" |  awk -F'\t' '{print $
 sed -E -nf ./build/diff.sed temp/diff_raw.txt | sort | uniq > temp/changedFiles.txt
 
 if [ ! -s temp/changedFiles.txt ]; then 
-  echo "no changes for deployment"
+  echo "no deployment changes"
   exit 1;
 fi
   
