@@ -2,4 +2,4 @@
 echo "bash test...."
 node --version
 
-ant --version
+ant -version
