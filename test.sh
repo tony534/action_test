@@ -7,7 +7,7 @@ tar xJf sfdx-linux-amd64.tar.xz -C sfdx --strip-components 1
 sfdx help force
 
 echo "######"
-echo $FIRST_NAME
+# echo $FIRST_NAME
 
 a1=zhangsan
 zhangsan_a2=lisi
