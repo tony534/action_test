@@ -1,25 +1,11 @@
-#!/bin/bash
-
-echo "download & install sfdx ...."
-wget https://developer.salesforce.com/media/salesforce-cli/sfdx-linux-amd64.tar.xz
-mkdir sfdx
-tar xJf sfdx-linux-amd64.tar.xz -C sfdx --strip-components 1
-./sfdx/install
-
-
+#! /bin/sh
 rm -rf deployment temp
 mkdir deployment temp
 
-echo "prepare the files to be deployed..."
 git diff --name-status $START_COMMIT HEAD | grep -v "^D" |  awk -F'\t' '{print $NF}' > temp/diff_raw.txt
 sed -E -nf ./build/diff.sed temp/diff_raw.txt | sort | uniq > temp/changedFiles.txt
-
-if [ ! -s temp/changedFiles.txt ]; then 
-  echo "no changes for deployment"
-  exit 1;
-fi
-  
-
+echo "################"
+cat temp/changedFiles.txt
 cp build/build.xml build.xml
 ant copyFiles
 ls -R deployment

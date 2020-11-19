@@ -1,0 +1,8 @@
+<project name="utilities" >
+  <target name="copyFiles">
+      <copy todir="deployment" >
+          <fileset dir="." includesfile="temp/changedFiles.txt">
+          </fileset>
+      </copy>
+  </target>
+</project>

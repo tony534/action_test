@@ -1,3 +1,6 @@
-a1=zhangsan
-zhangsan_a2=lisi
-echo ${a1}_a2
+#!/bin/bash
+if [ ! -s test3.txt ]; then
+  echo "empty file"
+else 
+  echo "good file"
+fi
