@@ -30,7 +30,7 @@ sfdx force:config:set defaultusername=$ORG_NAME
 sfdx force:config:set defaultdevhubusername=$ORG_NAME
 rm Temp_File
 if [ $CHECK_ONLY = "true" ]; then
- sfdx force:source:deploy --targetusername $ORG_NAME --sourcepath $SOURCE_FOLDER --testlevel $TEST_LEVEL --checkonly
+ sfdx force:source:deploy --targetusername $ORG_NAME --sourcepath deployment/force-app/main/default --testlevel $TEST_LEVEL --checkonly
 else
- sfdx force:source:deploy --targetusername $ORG_NAME --sourcepath $SOURCE_FOLDER --testlevel $TEST_LEVEL
+ sfdx force:source:deploy --targetusername $ORG_NAME --sourcepath deployment/force-app/main/default --testlevel $TEST_LEVEL
 fi

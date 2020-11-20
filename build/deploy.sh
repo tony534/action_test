@@ -4,8 +4,7 @@ mkdir deployment temp
 
 git diff --name-status $START_COMMIT HEAD | grep -v "^D" |  awk -F'\t' '{print $NF}' > temp/diff_raw.txt
 sed -E -nf ./build/diff.sed temp/diff_raw.txt | sort | uniq > temp/changedFiles.txt
-echo "################"
-cat temp/changedFiles.txt
+
 cp build/build.xml build.xml
 ant copyFiles
 ls -R deployment
